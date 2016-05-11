@@ -11,7 +11,7 @@ GiF
 </div>
 <div id="header">
 	<div id="logos">
-			<a class="logo" href="<?php echo $CFG->wwwroot . '/local/tutoriales/index.php'; ?> ">
+			<a class="logo" href="<?php echo $CFG->wwwroot . '/local/gif/gif/index.php'; ?> ">
 				<img src="gil.png">
 			</a>
 		<div class="logo2">
