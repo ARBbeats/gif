@@ -30,7 +30,7 @@ $PAGE->set_context($context);
 // Check that user is logued in the course.
 require_login();
 // Page navigation and URL settings.
-$PAGE->set_url(new moodle_url('/local/gif/gif/page1', array('filter'=>$name)));
+
 $PAGE->set_pagelayout('incourse');
 $PAGE->set_title('Hello world');
 // Show the page header
