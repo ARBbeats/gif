@@ -40,11 +40,7 @@ GiF
 	</div>
 	<div id="separador">
 	</div>
-	<div id="container3">
-		<a href="<?php echo $CFG->wwwroot . '/local/tutoriales/faq.php'; ?>">
-		<img src="images/faq.png">
-		</a>
-	</div>
+
 	<div id="separador">
 	</div>
 	
