@@ -37,21 +37,14 @@ GiF
 			<img width="256" height="256" src="images/alumnosg.png">
 		</a>
 	
+	</div>
+	<div id="separador">
+	</div>
 
 <div id="linea2">
 </div>
 
 <div id="foot">
 	<div class="footer">&copy; <?php echo date('Y');?> Universidad Adolfo Ib&aacute;&ntilde;ez</div>
-	<div id="social">
-		<div class="facebook">
-			<a href="https://www.facebook.com/coordinador.webcursosuai">
-			<img width="50" height="50" src="images/facebook.png">
-			</a></div>
-		<div class="twitter">
-			<a href="https://twitter.com/UAI_CL">
-		<img width="50" height="50" src="images/twitter.png">
-		</a></div>
-	</div>
-</div>
+
 </body>
