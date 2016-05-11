@@ -37,14 +37,7 @@ GiF
 			<img width="256" height="256" src="images/alumnosg.png">
 		</a>
 	
-	</div>
-	<div id="separador">
-	</div>
 
-	<div id="separador">
-	</div>
-	
-</div>
 <div id="linea2">
 </div>
 
