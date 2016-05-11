@@ -20,7 +20,7 @@
  * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-if (!file_exists('/../config.php')) {
+if (!file_exists('./././config.php')) {
     header('Location: install.php');
     die;
 }
