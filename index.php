@@ -23,14 +23,6 @@
 */
 
 
-require_once('config.php');
-require_once($CFG->dirroot .'/course/lib.php');
-require_once($CFG->libdir .'/filelib.php');
-redirect_if_major_upgrade_required();
-$urlparams = array();
-if (!empty($CFG->defaulthomepage) && ($CFG->defaulthomepage == HOMEPAGE_MY) && optional_param('redirect', 1, PARAM_BOOL) === 0) {
-	$urlparams['redirect'] = 0;
-}
 $PAGE->set_url('/', $urlparams);
 $PAGE->set_course($SITE);
 $PAGE->set_other_editing_capability('moodle/course:update');
