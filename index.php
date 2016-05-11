@@ -12,7 +12,7 @@ GiF
 <div id="header">
 	<div id="logos">
 			<a class="logo" href="<?php echo $CFG->wwwroot . '/local/gif/gif/index.php'; ?> ">
-				<img src="gil.gif">
+				<img src="nuevo-logo-wcurso_transp2">
 			</a>
 		<div class="logo2">
 		</div>
