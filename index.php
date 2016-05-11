@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="estilo.css">
 <title>
-Tutoriales WebCursos
+GiF
 </title>
 <body>
 <div id="linea">
@@ -36,12 +36,7 @@ Tutoriales WebCursos
 		<a class="dest cat2" href="<?php echo $CFG->wwwroot . '/local/tutoriales/alumnos.php'; ?>">
 			<img width="256" height="256" src="images/alumnosg.png">
 		</a>
-		<a class="dest cat3" href="<?php echo $CFG->wwwroot . '/local/tutoriales/coordinadores.php'; ?>">
-			<img width="256" height="256" src="images/coordinadoresg.png">
-		</a>
-		<a class="dest cat4" href="<?php echo $CFG->wwwroot . '/local/tutoriales/administrativos.php'; ?>">
-			<img width="256" height="256" src="images/administrativosg.png">
-		</a>
+	
 	</div>
 	<div id="separador">
 	</div>
@@ -52,18 +47,7 @@ Tutoriales WebCursos
 	</div>
 	<div id="separador">
 	</div>
-	<div id="container2">
-		<table width="1024px" height="100%">
-		<tr>
-			<td class="imagen" colspan="2"></td>
-		</tr>
-		<tr>		
-			<td width="50%" height="80%">
-				<iframe width="680" height="280" src="http://www.youtube.com/embed/ernR7ahcqyw?feature=player_detailpage" frameborder="0"></iframe>
-			</td>
-		</tr>
-		</table> 
-	</div>
+	
 </div>
 <div id="linea2">
 </div>
