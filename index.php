@@ -21,7 +21,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 // Minimum for Moodle to work, the basic libraries
-require_once(dirname(dirname(dirname(__FILE__))) . '/../../../config.php');
+require_once (dirname ( __FILE__ ) . '/../../../config.php');
 // Parameter passed from the url.
 $name = required_param('name', PARAM_TEXT);
 // Moodle pages require a context, that can be system, course or module (activity or resource)
