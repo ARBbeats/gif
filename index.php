@@ -1,6 +1,6 @@
 <?php require_once (dirname ( __FILE__ ) . '/../../../config.php');
 // Parameter passed from the url.
-$name = required_param('name', 'home');
+$name = required_param('name', home);
 // Moodle pages require a context, that can be system, course or module (activity or resource)
 $context = context_system::instance();
 $PAGE->set_context($context);
