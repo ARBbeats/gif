@@ -28,11 +28,13 @@ $PAGE->set_title('GIF');
 echo $OUTPUT->header();
 // Here goes the content
 
+//show the people that did the quiz, group by seccions
 $asistencia="select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
-		group by s.id desc" ;
+		group by s.id desc";
 
-$table = $DB->get_records_sql($asistencia, array("id"=>"1"));
+
+$table = $DB->get_records_sql($asistencia);
 var_dump($table);
 
 
