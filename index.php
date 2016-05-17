@@ -9,6 +9,7 @@
  */
 
 require_once (dirname ( __FILE__ ) . '/../../../config.php');
+global $DB, $USER, $PAGE, $OUTPUT;
 // Parameter passed from the url.
 
 // Moodle pages require a context, that can be system, course or module (activity or resource)
@@ -26,6 +27,14 @@ $PAGE->set_title('GIF');
 // Show the page header
 echo $OUTPUT->header();
 // Here goes the content
+
+$asistencia="select s.id,sum(g.id)
+		from mld_quiz_grades as g join mld_quiz_seccions as s on (s.quizid=g.quiz) 
+		group by s.id desc ";
+
+$table = $DB->get_records_sql($asistencia, array("id"=>"0"));
+var_dump($table);
+
 
 // Show the page footer
 echo $OUTPUT->footer();
