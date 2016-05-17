@@ -37,7 +37,7 @@ $asistencia="select s.id,sum(g.id)
 		group by s.id desc";
 
 
-$table = $DB->get_records_sql($asistencia,array("id"=>"1"));
+$table = $DB->get_records_sql($asistencia,array("s.id"=>"1"));
 
 echo $table ;
 
