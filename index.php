@@ -3,7 +3,7 @@
 /**
  *
  * @package local
- * @subpackage notebookstore
+ * @subpackage excel export report
  * @copyright 2016 Sebastian Velasquez (sevelasquez@alumnos.uai.cl)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -28,15 +28,25 @@ $PAGE->set_title('GIF');
 echo $OUTPUT->header();
 // Here goes the content
 
+//table helper
+$helpers_order = new html_table();
+
 //show the people that did the quiz, group by seccions
 $asistencia="select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
 		group by s.id desc";
 
 
-$table = $DB->get_records_sql($asistencia);
+$table = $DB->get_records_sql($asistencia,array("id"=>"0"));
+
 var_dump($table);
 
+$var = $markers->firstname;
+echo "</br>".$var;
+foreach ($table as $table){
+	$helpers_order->data[] = array($table->s.id."</br>".$table->sum(g.id));
+}
+echo html_writer::table ( $helpers_order );
 
 // Show the page footer
 echo $OUTPUT->footer();
