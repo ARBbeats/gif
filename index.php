@@ -39,8 +39,6 @@ $asistencia="select s.id,sum(g.id)
 
 $table = $DB->get_records_sql($asistencia,array("id"=>"0"));
 
-var_dump($table);
-
 $var = $table->id;
 echo "</br>".$var;
 foreach ($table as $data){
