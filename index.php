@@ -29,8 +29,8 @@ echo $OUTPUT->header();
 // Here goes the content
 
 $asistencia="select s.id,sum(g.id)
-		from mld_quiz_grades as g join mld_quiz_seccions as s on (s.quizid=g.quiz) 
-		group by s.id desc ";
+		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
+		group by s.id desc" ;
 
 $table = $DB->get_records_sql($asistencia, array("id"=>"0"));
 var_dump($table);
