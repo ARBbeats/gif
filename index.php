@@ -37,14 +37,10 @@ $asistencia="select s.id,sum(g.id)
 		group by s.id desc";
 
 
-$table = $DB->get_records_sql($asistencia,array("id"=>"0"));
+$table = $DB->get_records_sql($asistencia);
 
-$var = $table->id;
-echo "</br>".$var;
-foreach ($table as $data){
-	$helpers_order->data[] = array($data->s.id."</br>".$data->sum(g.id));
-}
-echo html_writer::table ( $helpers_order );
+echo $table ;
+
 
 // Show the page footer
 echo $OUTPUT->footer();
