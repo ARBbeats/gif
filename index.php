@@ -39,14 +39,14 @@ $asistencia="select s.id,sum(g.id)
 
 $table = $DB->get_records_sql($asistencia,array("id"=>"0"));
 
+var_dump($table);
 
-
-$var = $markers->firstname;
+$var = $table->id;
 echo "</br>".$var;
-foreach ($table as $table){
-	$helpers_order->data[] = array($table->s.id."</br>".$table->sum(g.id));
+foreach ($table as $data){
+	$helpers_order->data[] = array($data->s.id."</br>".$data->sum(g.id));
 }
-
+echo html_writer::table ( $helpers_order );
 
 // Show the page footer
 echo $OUTPUT->footer();
