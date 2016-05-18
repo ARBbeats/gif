@@ -15,6 +15,7 @@ global $DB, $USER, $PAGE, $OUTPUT;
 // Moodle pages require a context, that can be system, course or module (activity or resource)
 $context = context_system::instance();
 $PAGE->set_context($context);
+
 // Check that user is logued in the course.
 require_login();
 if (isguestuser()) {
@@ -28,21 +29,18 @@ $PAGE->set_title('GIF');
 echo $OUTPUT->header();
 // Here goes the content
 
-//table helper
-$helpers_order = new html_table();
-
 //show the people that did the quiz, group by seccions
-//$asistencia="select s.id,sum(g.id)
-		// from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
-	//	where s.quizid=?
-		//group by s.id desc";
+$asistencia="select s.id,sum(g.id)
+	    from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
+		group by s.id desc";
 
 
-$table = $DB->get_records_sql("select s.id,sum(g.id)
+//get data from db
+$data = $DB->get_records_sql("select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
-		group by s.id desc",array("s.quizid=g.quiz"));
+		group by s.id desc",array('s.id'));
 
-echo $table ;
+
 
 
 // Show the page footer
