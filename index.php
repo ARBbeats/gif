@@ -41,19 +41,20 @@ echo $OUTPUT->header();
 		//group by s.id desc",array('s.id','sum(g.id)'));
 
 $secciones = new html_table();
-
 $querry = "select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
 		group by s.id desc";
 
+$sql = $DB->get_records_sql($querry, array("s.id"=>"1"));
 
-$records = get_records_sql($querry);
+var_dump($sql);
 
-foreach ($records as $record) ;
-{
-echo $record->s.id, $record->sum(g.id);
+$var = $sql->sc;
+
+echo "</br>".$var;
+foreach ($sql as $data){
+	$helpers_order->data[] = array($data->sc."</br>".$data->sm);
 }
-
 echo html_writer::table ( $secciones );
 
 
