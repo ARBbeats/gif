@@ -41,7 +41,8 @@ $data = $DB->get_records_sql("select s.id,sum(g.id)
 		group by s.id desc",array('s.id','sum(g.id)'));
 
 
- echo $data;
+ echo $data['s.id'];
+
 
 
 
