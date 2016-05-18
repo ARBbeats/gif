@@ -46,10 +46,11 @@ $querry = "select s.id,sum(g.id)
 		group by s.id desc";
 
 $sql = $DB->get_records_sql($querry, array("s.id"=>"1"));
-
-var_dump($sql);
+$sql2 = $DB->get_records_sql($querry, array("sum(g.id)"));
+var_dump($sql,$sql2);
 $var = $sql->sc;
-$var2 = $sql->sm;
+$var2 = $sql2->sm;
+
 echo "</br>".$var.$var2;
 foreach ($sql as $data){
 	$helpers_order->data[] = array($data->sc."</br>".$data->sm);
