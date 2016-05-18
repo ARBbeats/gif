@@ -45,7 +45,7 @@ $test = "select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
 		group by s.id desc";
 
-$sql = $DB->get_records_sql($test, array("s.id","sum(g.id)"));
+$sql = $DB->get_records_sql($test, array("s.id"=>"1","sum(g.id)"=>"1"));
 var_dump($sql);
 $var = $sql->id;
 echo "</br>".$var;
