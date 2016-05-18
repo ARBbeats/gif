@@ -41,6 +41,7 @@ echo $OUTPUT->header();
 		//group by s.id desc",array('s.id','sum(g.id)'));
 
 $secciones = new html_table();
+
 $querry = "select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
 		group by s.id desc";
@@ -53,7 +54,7 @@ $var = $sql->sc;
 
 echo "</br>".$var;
 foreach ($sql as $data){
-	$helpers_order->data[] = array($data->sc."</br>".$data->sm);
+	$helpers_order->data[] = array($data->sc."</br>".$data->sc);
 }
 echo html_writer::table ( $secciones );
 
