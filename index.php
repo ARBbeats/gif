@@ -45,12 +45,12 @@ $test = "select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
 		group by s.id desc";
 
-$markers = $DB->get_records_sql($test, array("s.id"=>"1"));
-var_dump($markers);
-$var = $markers->id;
+$sql = $DB->get_records_sql($test, array("s.id"=>"1"));
+var_dump($sql);
+$var = $sql->id;
 echo "</br>".$var;
-foreach ($markers as $marker){
-	$helpers_order->data[] = array($marker->id."</br>".$marker->sum);
+foreach ($sql as $data){
+	$helpers_order->data[] = array($data->id."</br>".$data->sum);
 }
 echo html_writer::table ( $helpers_order );
 
