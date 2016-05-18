@@ -46,16 +46,14 @@ $querry = "select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
 		group by s.id desc";
 
-$sql = $DB->get_records_sql($querry);
 
-var_dump($sql);
+$records = get_records_sql($querry);
 
-$var = $sql->sc;
-
-echo "</br>".$var;
-foreach ($sql as $data){
-	$helpers_order->data[] = array($data->sc."</br>".$data->sm);
+foeach ($records as  $id => $record) ;
+{
+echo $record->s.id, $record->sum(g.id);
 }
+
 echo html_writer::table ( $secciones );
 
 
