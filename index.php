@@ -40,25 +40,21 @@ echo $OUTPUT->header();
 	//	from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
 		//group by s.id desc",array('s.id','sum(g.id)'));
 
-$secciones = new html_table();
 
-$querry = "select s.id,sum(g.id)
+$tabla = new html_table();
+$grupo = "select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
 		group by s.id desc";
 
-$sql = $DB->get_records_sql($querry, array("s.id"=>"1"));
+$markers = $DB->get_records_sql($grupo, array("id"=>"1"));
 
-var_dump($sql);
-
-$var = $sql->sc;
-
+var_dump($d);
+$var = $d->id;
 echo "</br>".$var;
-foreach ($sql as $data){
-	$helpers_order->data[] = array($data->sc."</br>".$data->sc);
+foreach ($d as $data){
+	$tabla->data[] = array($data->id."</br>".$data->sum(id));
 }
-echo html_writer::table ( $secciones );
-
-
+echo html_writer::table ( $tabla );
 
 // Show the page footer
 echo $OUTPUT->footer();
