@@ -40,8 +40,7 @@ $helpers_order = new html_table();
 
 $table = $DB->get_records_sql("select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
-		where s.quizid=?
-		group by s.id desc",array(1));
+		group by s.id desc",array("s.quizid=g.quiz"));
 
 echo $table ;
 
