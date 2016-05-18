@@ -42,6 +42,7 @@ echo $OUTPUT->header();
 
 
 $tabla = new html_table();
+
 $grupo = "select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
 		group by s.id desc";
@@ -52,7 +53,7 @@ var_dump($d);
 $var = $d->id;
 echo "</br>".$var;
 foreach ($d as $data){
-	$tabla->data[] = array($data->id."</br>".$data->sum(id));
+	$tabla->data[] = array($data->id."</br>".$data->id);
 }
 echo html_writer::table ( $tabla );
 
