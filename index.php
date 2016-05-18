@@ -57,7 +57,7 @@ $var = $d->id;
 $var2 = $d->sum;
 
 foreach ($d as $data){
-	$tabla->data[] = array($data->id."</br>".$data->sum);
+	$tabla->data[] = array($data->id.$data->sum);
 }
 echo html_writer::table ( $tabla );
 
