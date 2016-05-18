@@ -55,7 +55,7 @@ $d = $DB->get_records_sql($grupo);
 var_dump($d);
 $var = $d->id;
 $var2 = $d->sum;
-echo "</br>".$var.$var2;
+echo "</br>";
 foreach ($d as $data){
 	$tabla->data[] = array($data->id."</br>".$data->sum);
 }
