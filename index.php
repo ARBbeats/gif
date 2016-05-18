@@ -49,7 +49,7 @@ $querry = "select s.id,sum(g.id)
 
 $records = get_records_sql($querry);
 
-foeach ($records as  $id => $record) ;
+foreach ($records as $record) ;
 {
 echo $record->s.id, $record->sum(g.id);
 }
