@@ -46,7 +46,7 @@ $grupo = "select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
 		group by s.id desc";
 
-$markers = $DB->get_records_sql($grupo, array("s.id"=>"1"));
+$d = $DB->get_records_sql($grupo, array("s.id"=>"1"));
 
 var_dump($d);
 $var = $d->id;
