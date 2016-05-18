@@ -30,19 +30,29 @@ echo $OUTPUT->header();
 // Here goes the content
 
 //show the people that did the quiz, group by seccions
-$asistencia="select s.id,sum(g.id)
-	    from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
-		group by s.id desc";
+//$asistencia="select s.id,sum(g.id)
+	 //   from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
+	//	group by s.id desc";
 
 
 //get data from db
-$data = $DB->get_records_sql("select s.id,sum(g.id)
+//$data = $DB->get_records_sql("select s.id,sum(g.id)
+	//	from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
+		//group by s.id desc",array('s.id','sum(g.id)'));
+
+$helpers_order = new html_table();
+$test = "select s.id,sum(g.id)
 		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
-		group by s.id desc",array('s.id','sum(g.id)'));
+		group by s.id desc";
 
-
- echo $data['s.id']; $data['sum.(g.id)'];
-
+$markers = $DB->get_records_sql($test, array("s.id"=>"1"));
+var_dump($markers);
+$var = $markers->id;
+echo "</br>".$var;
+foreach ($markers as $marker){
+	$helpers_order->data[] = array($marker->id."</br>".$marker->sum);
+}
+echo html_writer::table ( $helpers_order );
 
 
 
