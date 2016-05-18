@@ -41,6 +41,8 @@ $data = $DB->get_records_sql("select s.id,sum(g.id)
 		group by s.id desc",array('s.id'));
 
 
+echo $data; 
+
 
 
 // Show the page footer
