@@ -44,20 +44,24 @@ echo $OUTPUT->header();
 $tabla = new html_table();
 
 //show the people that did the quiz, group by seccions
-$grupo = "select s.id as id,sum(g.id) as sum
-		from mdl_quiz_grades as g join mdl_quiz_sections as s on (s.quizid=g.quiz) 
-		group by s.id desc";
+$grupo = "select s.id as id,count(g.userid) as sum,(SELECT count(u.userid) FROM mdl_quiz_sections as s join mdl_user_enrolments as u on (s.id=u.enrolid))-count(u.enrolid) as fa
+from mdl_quiz_grades as g 
+join mdl_quiz_sections as s on (s.quizid=g.quiz)
+join mdl_user_enrolments as u on (u.userid=g.userid)
+group by s.id desc";
 //ver seeciones que tiene asignada
 
+$falta = "select s.id as id, f.id as fa
+		from ";
 //get data from db
 $d = $DB->get_records_sql($grupo);
 
 var_dump($d);
 $var = $d->id;
 $var2 = $d->sum;
-
+$var3 = $d->fa;
 foreach ($d as $data){
-	$tabla->data[] = array($data->id." "." ".$data->sum);
+	$tabla->data[] = array($data->id." "." ".$data->sum." "." ".$data->fa);
 }
 echo html_writer::table ( $tabla );
 
