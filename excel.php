@@ -12,12 +12,13 @@ $registros = mysql_num_rows ($resultado);
 
 if ($registros > 0) {
 	require_once '/../../../PHPExcel_1.8.0/Classes/PHPExcel.php';
+	global $DB, $USER, $PAGE, $OUTPUT;
 	$objPHPExcel = new PHPExcel();
 
 	//Informacion del excel
 	$objPHPExcel->
 	getProperties()
-	->setCreator("ingenieroweb.com.co")
+	->setCreator($resultado->id)
 	->setLastModifiedBy("ingenieroweb.com.co")
 	->setTitle("Exportar excel desde mysql")
 	->setSubject("Ejemplo 1")
@@ -36,7 +37,7 @@ if ($registros > 0) {
 	}
 }
 header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="ejemplo1.xls"');
+header('Content-Disposition: attachment;filename="Analisis.xls"');
 header('Cache-Control: max-age=0');
 
 $objWriter=PHPExcel_IOFactory::createWriter($objPHPExcel,'Excel2007');
