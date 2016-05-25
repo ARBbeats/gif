@@ -16,26 +16,26 @@ group by s.id desc";
    //Informacion del excel
    $objPHPExcel->
     getProperties()
-        ->setCreator("ingenieroweb.com.co")
-        ->setLastModifiedBy("ingenieroweb.com.co")
+        ->setCreator("")
+        ->setLastModifiedBy("")
         ->setTitle("Exportar excel desde mysql")
         ->setSubject("Ejemplo 1")
         ->setDescription("Documento generado con PHPExcel")
-        ->setKeywords("ingenieroweb.com.co  con  phpexcel")
-        ->setCategory("ciudades");    
+        ->setKeywords("")
+        ->setCategory("Datos");    
 
    $i = 1;    
-   while ($registro = mysql_fetch_object ($resultado)) {
+   while ($registros = mysql_fetch_object ($resultado)) {
        
       $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A'.$i, $registro->name);
+            ->setCellValue('A'.$i, $registros->id);
  
       $i++;
       
    }
 }
 header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="ejemplo1.xls"');
+header('Content-Disposition: attachment;filename="Analisis.xls"');
 header('Cache-Control: max-age=0');
 
 $objWriter=PHPExcel_IOFactory::createWriter($objPHPExcel,'Excel2007');
