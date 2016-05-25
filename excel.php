@@ -11,7 +11,7 @@ $resultado = mysql_query ($sql, $conexion) or die (mysql_error ());
 $registros = mysql_num_rows ($resultado);
 
 if ($registros > 0) {
-	require_once '/../../../PHPExcel_1.8.0/Classes/PHPExcel.php';
+	require_once '/../../../Classes/PHPExcel.php';
 	$objPHPExcel = new PHPExcel();
 
 	//Informacion del excel
