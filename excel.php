@@ -10,11 +10,6 @@ group by s.id desc";
 $resultado = mysql_query ($sql, $conexion) or die (mysql_error ());
 $registros = mysql_num_rows ($resultado);
 
-var_dump($registro);
-$var = $registro->id;
-$var2 = $registro->sum;
-$var3 = $registro->fa;
-
 if ($registro > 0) {
 	require_once '/../../../PHPExcel_1.8.0/Classes/PHPExcel.php';
 	$objPHPExcel = new PHPExcel();
