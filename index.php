@@ -51,8 +51,6 @@ join mdl_user_enrolments as u on (u.userid=g.userid)
 group by s.id desc";
 //ver seeciones que tiene asignada
 
-$falta = "select s.id as id, f.id as fa
-		from ";
 //get data from db
 $d = $DB->get_records_sql($grupo);
 
@@ -61,7 +59,7 @@ $var = $d->id;
 $var2 = $d->sum;
 $var3 = $d->fa;
 foreach ($d as $data){
-	$tabla->data[] = array($data->id." "." ".$data->sum." "." ".$data->fa);
+	$tabla->data[] = array("Seccion".$data->id." "." "."Quizes Rendidos".$data->sum." "." "."Quizes Faltantes".$data->fa);
 }
 echo html_writer::table ( $tabla );
 
