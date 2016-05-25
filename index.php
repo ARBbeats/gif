@@ -59,7 +59,7 @@ foreach ($d as $data){
 }
 echo html_writer::table ( $tabla );
 
-
+echo "<a href='http://localhost:8080/moodle/local/gif/gif/excel.php'>Exportar a Excel</a>";
 
 // Show the page footer
 echo $OUTPUT->footer();
