@@ -64,6 +64,6 @@ echo html_writer::table ( $tabla );
 // Show the page footer
 echo $OUTPUT->footer();
 
-
+echo "<a href='http://localhost:8080/moodle/local/gif/gif/excel.php'>Exportar a Excel</a>";
 
 ?>
