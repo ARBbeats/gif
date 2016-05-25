@@ -10,7 +10,17 @@ group by s.id desc";
 $resultado = mysql_query ($sql, $conexion) or die (mysql_error ());
 $registros = mysql_num_rows ($resultado);
 
-if ($registros > 0) {
+$grupo = "select s.id as id,count(g.userid) as sum,(SELECT count(u.userid) FROM mdl_quiz_sections as s join mdl_user_enrolments as u on (s.id=u.enrolid))-count(u.enrolid) as fa
+from mdl_quiz_grades as g
+join mdl_quiz_sections as s on (s.quizid=g.quiz)
+join mdl_user_enrolments as u on (u.userid=g.userid)
+group by s.id desc";
+//ver seeciones que tiene asignada
+
+//get data from db
+$d = $DB->get_records_sql($grupo);
+
+if ($d > 0) {
 	require_once '/../../../PHPExcel_1.8.0/Classes/PHPExcel.php';
 	global $DB, $USER, $PAGE, $OUTPUT;
 	$objPHPExcel = new PHPExcel();
@@ -18,7 +28,7 @@ if ($registros > 0) {
 	//Informacion del excel
 	$objPHPExcel->
 	getProperties()
-	->setCreator($resultado->id)
+	->setCreator($d->id)
 	->setLastModifiedBy("ingenieroweb.com.co")
 	->setTitle("Exportar excel desde mysql")
 	->setSubject("Ejemplo 1")
@@ -27,10 +37,10 @@ if ($registros > 0) {
 	->setCategory("ciudades");
 
 	$i = 1;
-	while ($registros = mysql_fetch_object ($registros)) {
+	while ($d = $DB->get_records_sql($grupo)) {
 			
 		$objPHPExcel->setActiveSheetIndex(0)
-		->setCellValue('A'.$i, $registro->id);
+		->setCellValue('A'.$i, $d->id);
 
 		$i++;
 
