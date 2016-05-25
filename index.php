@@ -59,7 +59,7 @@ $var = $d->id;
 $var2 = $d->sum;
 $var3 = $d->fa;
 foreach ($d as $data){
-	$tabla->data[] = array("Seccion".$data->id." "." "."Quizes Rendidos".$data->sum." "." "."Quizes Faltantes".$data->fa);
+	$tabla->data[] = array("Seccion"." "." ".$data->id." "." "."Quizes Rendidos"." "." ".$data->sum." "." "."Quizes Faltantes"." "." ".$data->fa);
 }
 echo html_writer::table ( $tabla );
 
