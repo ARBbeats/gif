@@ -28,8 +28,9 @@ group by s.id desc";
    while ($registros = mysql_fetch_object ($resultado)) {
        
       $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A'.$i, $registros->id);
- 
+            ->setCellValue('A'.$i, $registros->id)
+            ->setCellValue('B'.$i, $registros->sum)
+            ->setCellValue('C'.$i, $registros->fa);
       $i++;
       
    }
