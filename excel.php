@@ -10,7 +10,7 @@ group by s.id desc";
 $resultado = mysql_query ($sql, $conexion) or die (mysql_error ());
 $registros = mysql_num_rows ($resultado);
 
-if ($registro > 0) {
+if ($registros > 0) {
 	require_once '/../../../PHPExcel_1.8.0/Classes/PHPExcel.php';
 	$objPHPExcel = new PHPExcel();
 
