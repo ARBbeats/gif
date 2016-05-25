@@ -59,39 +59,7 @@ foreach ($d as $data){
 }
 echo html_writer::table ( $tabla );
 
-if ($d > 0) {
-	require_once '/../../../PHPExcel_1.8.0/Classes/PHPExcel.php';
-	global $DB, $USER, $PAGE, $OUTPUT;
-	$objPHPExcel = new PHPExcel();
 
-	//Informacion del excel
-	$objPHPExcel->
-	getProperties()
-	->setCreator($d->id)
-	->setLastModifiedBy("ingenieroweb.com.co")
-	->setTitle("Exportar excel desde mysql")
-	->setSubject("Ejemplo 1")
-	->setDescription("Documento generado con PHPExcel")
-	->setKeywords("ingenieroweb.com.co  con  phpexcel")
-	->setCategory("ciudades");
-
-	$i = 1;
-	while ($d = $DB->get_records_sql($grupo)) {
-			
-		$objPHPExcel->setActiveSheetIndex(0)
-		->setCellValue('A'.$i, $d->id);
-
-		$i++;
-
-	}
-}
-header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="Analisis.xls"');
-header('Cache-Control: max-age=0');
-
-$objWriter=PHPExcel_IOFactory::createWriter($objPHPExcel,'Excel2007');
-$objWriter->save('php://output');
-exit;
 
 // Show the page footer
 echo $OUTPUT->footer();
