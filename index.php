@@ -54,7 +54,7 @@ group by s.id desc";
 //get data from db
 $d = $DB->get_records_sql($grupo);
 
-var_dump($d);
+
 $var = $d->id;
 $var2 = $d->sum;
 $var3 = $d->fa;
