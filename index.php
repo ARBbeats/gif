@@ -54,10 +54,6 @@ group by s.id desc";
 //get data from db
 $d = $DB->get_records_sql($grupo);
 
-
-$var = $d->id;
-$var2 = $d->sum;
-$var3 = $d->fa;
 foreach ($d as $data){
 	$tabla->data[] = array("Seccion"." "." ".$data->id." "." "."QR"." "." ".$data->sum." "." "."QF"." "." ".$data->fa);
 }
