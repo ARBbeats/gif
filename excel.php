@@ -26,7 +26,7 @@ if ($registros > 0) {
 	->setCategory("ciudades");
 
 	$i = 1;
-	while ($registro = mysql_fetch_object ($registro)) {
+	while ($registros = mysql_fetch_object ($registro)) {
 			
 		$objPHPExcel->setActiveSheetIndex(0)
 		->setCellValue('A'.$i, $registro->id);
