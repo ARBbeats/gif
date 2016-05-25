@@ -1,0 +1,207 @@
+@CHARSET "ISO-8859-1";
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
+}
+
+#header
+{
+	background-image: url("images/header.png"); 
+	background-repeat: repeat;
+	height:100px;
+
+}
+#logos
+{
+    width:1024px;
+    margin-left:auto;
+	margin-right:auto;	
+}
+.logo
+{
+	color:black;
+	font-weight:bold;
+	float: left;
+}
+.logo2
+{
+	float: right;
+	width:250px;
+	height:100px;
+	background-image: url("images/tutoriales.png");
+	background-repeat:no-repeat;
+}
+#linea
+{
+	background-color: #000000;
+	height:5px;
+}
+#banner
+{
+    width:1024px;
+    margin-left:auto;
+	margin-right:auto;
+	background-image: url("images/banner1.jpg");
+	background-repeat:no-repeat;
+	height:170px;
+}
+#linea2
+{
+	background-color:white;
+	width:1024px;
+	height:25px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#main
+{
+    background-color: #FFF;
+    height:800px;
+    width:1024px;
+    margin-left:auto;
+	margin-right:auto;
+}
+#container1
+{
+	width:1024px;
+	height:32%;
+}
+a.dest
+{
+	float: left;
+	height: 256px;	
+	overflow: hidden;
+	position: relative;
+	text-decoration: none;
+	width: 256px;
+	
+}
+a.dest div 
+{
+	cursor: pointer;
+	display: none;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	
+}
+a.dest.cat1 div {
+	background-image: url("images/profesores.png");
+}
+a.dest.cat2 div {
+	background-image: url("images/alumnos.png");
+}
+a.dest.cat3 div {
+	background-image: url("images/coordinadores.png");
+
+}
+a.dest.cat4 div {
+	background-image: url("images/administrativos.png");
+}
+a.dest img 
+{
+	border:none;
+}
+a.dest:hover div 
+{
+	display: block;
+	opacity: 1;
+}
+#container2
+{
+	width:1024px;
+	height:51%;
+	margin-left:auto;
+	margin-right:auto;
+}
+.imagen
+{
+	width:inherit;
+	height:20%;
+	background-image:url("images/videos.png");
+	background-repeat:no-repeat;
+}
+.titulovideo
+{
+	text-decoration:none;
+	text-align:center;
+	color:#000;
+	font-family: "PT Sans",Arial,Helvetica,sans-serif;
+	font-size: 10pt; 
+	text-transform:uppercase;
+	font-weight:bold;
+}
+#separador
+{
+	background-image:url("images/dot.png");
+	background-repeat:repeat-x;
+	height:3%;
+	width:1024px;
+}
+#container3
+{
+	width:1024px;
+	height:11%;
+
+}
+#foot
+{
+    background-color: #000;
+    height:80px;
+    width:1024px;
+    margin-left:auto;
+	margin-right:auto;
+	font-size: 1em;
+
+
+}
+.footer
+{
+	height:40px;
+	color: white;
+	font-size: 1em;
+	text-align: left;
+	font-family: "PT Sans",Arial,Helvetica,sans-serif;
+	padding-top:40px;
+	padding-left: 20px;
+	width:492px;
+	float:left;
+
+}
+#social
+{
+	width:512px;
+	height:80px;
+	float:right;
+
+}
+.facebook
+{
+	padding-left: 387px;
+	padding-top:15px;
+	float:left
+}
+.twitter
+{
+	padding-left: 10px;
+	padding-top:15px;
+	float:left;
+}
