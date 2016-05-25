@@ -10,11 +10,7 @@
 
 global $DB, $USER, $PAGE, $OUTPUT;
 // Parameter passed from the url.
-require_login();
-if (isguestuser()) {
-	die();
-}
-echo $OUTPUT->header();
+
 
 
 $grupo = "select s.id as id,count(g.userid) as sum,(SELECT count(u.userid) FROM mdl_quiz_sections as s join mdl_user_enrolments as u on (s.id=u.enrolid))-count(u.enrolid) as fa
