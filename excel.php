@@ -1,5 +1,5 @@
 <?php
-$conexion = mysql_connect ("localhost", "root", "");
+$conexion = mysql_connect ("localhost", "root", "6500233");
 mysql_select_db ("moodle", $conexion);
 $sql = "select s.id as id,count(g.userid) as sum,(SELECT count(u.userid) FROM mdl_quiz_sections as s join mdl_user_enrolments as u on (s.id=u.enrolid))-count(u.enrolid) as fa
 from mdl_quiz_grades as g 
