@@ -5,6 +5,7 @@
  mysql_select_db ("moodle", $conexion);    
  
  //consulta para pedir los datos necesarios y agregarlos al excel
+ //las letras s, g y u son letras elegidas al azar para nombrar de manera distintas a las tablas
  $sql = "select s.id as id,count(g.userid) as sum,(SELECT count(u.userid) FROM mdl_quiz_sections as s join mdl_user_enrolments as u on (s.id=u.enrolid))-count(u.enrolid) as fa
 from mdl_quiz_grades as g
 join mdl_quiz_sections as s on (s.quizid=g.quiz)
@@ -36,6 +37,7 @@ group by s.id desc";
    
    //insertamos los datos de la variable registros al excel, en las columnas que sean
    //las adecuadas
+   
    while ($registros = mysql_fetch_object ($resultado)) {
        
       $objPHPExcel->setActiveSheetIndex(0)
