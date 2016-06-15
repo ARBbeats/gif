@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  *
 * @package local
@@ -44,15 +42,16 @@ echo $OUTPUT->header();
 
 $tabla = new html_table();
 
-//show the people that did the quiz, group by seccions
-$grupo = "select s.id as id,count(g.userid) as sum,(SELECT count(u.userid) FROM mdl_quiz_sections as s join mdl_user_enrolments as u on (s.id=u.enrolid))-count(u.enrolid) as fa
+//muestra la seccion, la gente que hizo el quiz y la que no lo hizo.
+//las letras s, g y u son letras elegidas al azar para nombrar de manera distintas a las tablas
+$grupo = "select s.id as id,count(g.userid) as sum, (SELECT count(u.userid) FROM mdl_quiz_sections as s join mdl_user_enrolments as u on (s.id=u.enrolid))-count(g.userid) as fa
 from mdl_quiz_grades as g
 join mdl_quiz_sections as s on (s.quizid=g.quiz)
-join mdl_user_enrolments as u on (u.userid=g.userid)
-group by s.id desc";
+group by s.id asc";
 //ver seeciones que tiene asignada
 
 //get data from db
+//ejecuto la cosulta.
 $d = $DB->get_records_sql($grupo);
 
 foreach ($d as $data){
