@@ -6,11 +6,10 @@
  
  //consulta para pedir los datos necesarios y agregarlos al excel
  //las letras s, g y u son letras elegidas al azar para nombrar de manera distintas a las tablas
- $sql = "select s.id as id,count(g.userid) as sum,(SELECT count(u.userid) FROM mdl_quiz_sections as s join mdl_user_enrolments as u on (s.id=u.enrolid))-count(u.enrolid) as fa
+ $sql = "select s.id as id,count(g.userid) as sum, (SELECT count(u.userid) FROM mdl_quiz_sections as s join mdl_user_enrolments as u on (s.id=u.enrolid))-count(g.userid) as fa
 from mdl_quiz_grades as g
 join mdl_quiz_sections as s on (s.quizid=g.quiz)
-join mdl_user_enrolments as u on (u.userid=g.userid)
-group by s.id desc";
+group by s.id asc";
  
  //ejecutar consulta sql
  $resultado = mysql_query ($sql, $conexion) or die (mysql_error ());
@@ -33,25 +32,30 @@ group by s.id desc";
         ->setKeywords("")
         ->setCategory("Datos");    
 
-   $i = 1;    
-   
+   $i = 3;    
+   $ii= 2;
    //insertamos los datos de la variable registros al excel, en las columnas que sean
    //las adecuadas
    
    while ($registros = mysql_fetch_object ($resultado)) {
        
       $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A'.$i, $registros->id)
-            ->setCellValue('B'.$i, $registros->sum)
-            ->setCellValue('C'.$i, $registros->fa);
+            ->setCellValue('B'.$ii, 'Seccion')
+            ->setCellValue('C'.$ii, 'Quizes Rendidos')
+            ->setCellValue('D'.$ii, 'Quizes por Rendir')
+            ->setCellValue('B'.$i, $registros->id)
+            ->setCellValue('C'.$i, $registros->sum)
+            ->setCellValue('D'.$i, $registros->fa);
       $i++;
+      //El establecimiento de marcos
+      
       
    }
 }
 
 //informacion del documento que será generado
 header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="Analisis.xls"');
+header('Content-Disposition: attachment;filename="Analisis.xlsx"');
 header('Cache-Control: max-age=0');
 
 $objWriter=PHPExcel_IOFactory::createWriter($objPHPExcel,'Excel2007');
